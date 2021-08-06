@@ -1,8 +1,13 @@
 # 建立项目文件夹
+```
 public-静态资源
 model-数据库操作
 route-路由操作
 views-模板
+```
+
+
+
 # 初始化项目描述文件
 
 npm init -y
@@ -16,6 +21,9 @@ npm install express mongoose art-template express-art-template
 
 # git命令剪贴板
 
+```
 git add .
 git commit -m "first commit"
 git push origin origin master
+```
+
