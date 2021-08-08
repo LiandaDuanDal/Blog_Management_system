@@ -40,6 +40,12 @@ npm install express mongoose art-template express-art-template
 
 ## 创建网站服务器
 
+# login
+
+get请求会把表单内容放到地址栏。
+
+做服务器端验证的必要性：如果用户禁用了js那么客户端的验证就会失败。
+
 
 
 
@@ -47,7 +53,7 @@ npm install express mongoose art-template express-art-template
 
 ```
 git add .
-git commit -m "user module export"
+git commit -m "login page"
 git push origin master
 ```
 

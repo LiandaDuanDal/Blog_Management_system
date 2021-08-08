@@ -13,14 +13,14 @@
         <div class="login-container">
             <h4 class="title">黑马程序员 - 博客管理员登录</h4>
             <div class="login">
-                <form action="user.html">
+                <form action="/login" method="post" id="loginForm">
                     <div class="form-group">
                         <label>邮件</label>
-                        <input type="email" class="form-control" placeholder="请输入邮件地址">
+                        <input name="email" type="email" class="form-control" placeholder="请输入邮件地址">
                     </div>
                     <div class="form-group">
                         <label>密码</label>
-                        <input type="password" class="form-control" placeholder="请输入密码">
+                        <input name="password" type="password" class="form-control" placeholder="请输入密码">
                     </div>
                     <button type="submit" class="btn btn-primary">登录</button>
                 </form>
@@ -30,6 +30,43 @@
     </div>
     <script src="/admin/lib/jquery/dist/jquery.min.js"></script>
     <script src="/admin/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/admin/js/common.js"></script>
+    <script type="text/javascript">
+    
+    // function serializeToJSON(form){
+    //     var result = {};
+
+    //     var f = form.serializeArray();
+    //     f.forEach(function (item){
+    //         result[item.name] = item.value;
+    //     });
+    //     return result;
+
+    // };
+        // 为表单添加提交事件
+        $('#loginForm').on('submit', function(){
+            // get the content form the forms
+            var result = serializeToJSON($(this));
+            // verify users' input
+            // if user did not input mail address
+            if(result.email.trim().length == 0){
+                // refuse the process to continue
+                alert("please input EMAIL");
+                return false;
+            };
+            if (result.password.trim().length == 0){
+                // if there is no input password
+                alert("please input PASSWORD");
+                return false
+            }
+
+            // console.log(f);
+            // refuse the default submit action
+            console.log(result);
+            // return false;
+        })
+        // 此时提交登录如果为空会卡住不动
+    </script>
 </body>
 
 </html>

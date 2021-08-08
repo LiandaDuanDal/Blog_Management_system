@@ -7,6 +7,8 @@ const path = require('path');
 // =============================================================================
 // connect to the database
 require('./database/connect.js');
+// import and setup user
+require('./model/user.js');
 // =============================================================================
 // tell express about the template path
 app.set('views', path.join(__dirname, 'views'));
@@ -24,14 +26,10 @@ const admin = require('./route/admin.js');
 // configure use midlleware
 app.use('/home', home);
 app.use('/admin', admin);
-
-
-
 // Listen to the port number
 // when the application is deploye on the server it should be 80
 app.listen(3000);
 console.log("Server Started, please access localhost")
-
 // access link
 // http://localhost:3000/admin/login
 // http://localhost:3000/123/login
