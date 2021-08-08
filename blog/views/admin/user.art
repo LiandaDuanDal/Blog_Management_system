@@ -1,65 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Blog - Content Manager</title>
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/base.css">
-</head>
-
-<body>
-	<!-- 头部 -->
-    <div class="header">
-    	<!-- 网站标志 -->
-        <div class="logo fl">
-          黑马程序员 <i>ITHEIMA</i>
-        </div>
-        <!-- /网站标志 -->
-        <!-- 用户信息 -->
-        <div class="info">
-            <div class="profile dropdown fr">
-                <span class="btn dropdown-toggle" data-toggle="dropdown">
-					admin
-					<span class="caret"></span>
-                </span>
-                <ul class="dropdown-menu">
-                    <li><a href="user-edit.html">个人资料</a></li>
-                    <li><a href="#">退出登录</a></li>
-                </ul>
-            </div>
-        </div>
-        <!-- /用户信息 -->
-    </div>
-    <!-- /头部 -->
-    <!-- 主体内容 -->
-    <div class="content">
+{{extend './common/layout.art'}}
+{{block 'main_content'}}
+<div class="content">
     	<!-- 侧边栏 -->
-        <div class="aside fl">
-            <ul class="menu list-unstyled">
-                <li>
-                    <a class="item active" href="user.html">
-						<span class="glyphicon glyphicon-user"></span>
-						用户管理
-					</a>
-                </li>
-                <li>
-                    <a class="item" href="article.html">
-			  			<span class="glyphicon glyphicon-th-list"></span>
-			  			文章管理
-			  		</a>
-                </li>
-            </ul>
-            <div class="cprt">
-                Powered by <a href="http://www.itheima.com/" target="_blank">黑马程序员</a>
-            </div>
-        </div>
+        {{include "./common/aside.art"}}
         <!-- 侧边栏 -->
         <div class="main">
         	<!-- 分类标题 -->
             <div class="title">
-                <h4>用户</h4>
+                <h4>用户ddd</h4>
                 <span>找到1个用户</span>
                 <a href="user-edit.html" class="btn btn-primary new">新增用户</a>
             </div>
@@ -134,7 +82,6 @@
             <!-- /分页 -->
         </div>
     </div>
-    <!-- /主体内容 -->
     <!-- 删除确认弹出框 -->
     <div class="modal fade confirm-modal">
         <div class="modal-dialog modal-lg">
@@ -154,8 +101,9 @@
         </div>
     </div>
     <!-- /删除确认弹出框 -->
+{{/block}}
+
+{{block 'private_script'}}
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+{{/block}}

@@ -9,6 +9,11 @@ admin.get('/login', (req, res) => {
     res.render('admin/login.art');
 });
 
+admin.get('/list', (req, res) => {
+    console.log("admin get ---admin/list.art---called")
+    res.render('admin/user-edit.art');
+    // res.render('admin/artical.art')
+})
 
 module.exports = admin
 

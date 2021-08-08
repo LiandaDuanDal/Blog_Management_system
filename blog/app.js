@@ -5,6 +5,9 @@ const app = express();
 // operate on path information
 const path = require('path');
 // =============================================================================
+// connect to the database
+require('./database/connect.js');
+// =============================================================================
 // tell express about the template path
 app.set('views', path.join(__dirname, 'views'));
 // telll express about the template tail
@@ -28,3 +31,7 @@ app.use('/admin', admin);
 // when the application is deploye on the server it should be 80
 app.listen(3000);
 console.log("Server Started, please access localhost")
+
+// access link
+// http://localhost:3000/admin/login
+// http://localhost:3000/123/login

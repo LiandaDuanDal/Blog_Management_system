@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Blog - Content Manager</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/base.css">
+</head>
+
+<body>
+{{include './header.art'}}
+{{include './aside.art'}}
+    <!-- 主体内容 -->
+    {{block 'main_content'}}{{/block}}
+    <!-- /主体内容 -->
+    {{block 'private_script'}}{{/block}}
+
+</body>
+
+</html>
