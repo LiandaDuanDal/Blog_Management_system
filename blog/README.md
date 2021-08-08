@@ -47,7 +47,7 @@ npm install express mongoose art-template express-art-template
 
 ```
 git add .
-git commit -m "setup the database and srt file"
+git commit -m "user module export"
 git push origin master
 ```
 
