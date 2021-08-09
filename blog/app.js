@@ -4,9 +4,15 @@ const express = require('express');
 const app = express();
 // operate on path information
 const path = require('path');
+// import bodyparser
+const bodyParser = require('body-parser');
 // =============================================================================
 // connect to the database
 require('./database/connect.js');
+// process post paramneter
+// 推荐使用false 如果为true会使用系统内置模块处理
+app.use(bodyParser.urlencoded({ extended: false }));
+
 // import and setup user
 require('./model/user.js');
 // =============================================================================

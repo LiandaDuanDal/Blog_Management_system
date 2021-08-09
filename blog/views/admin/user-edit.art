@@ -1,4 +1,6 @@
 {{extend './common/layout.art'}}
+{{include './header.art'}}
+{{include './aside.art'}}
 {{block 'main_content'}}
  <!-- 主体内容 -->
     <div class="content">

@@ -13,7 +13,7 @@
         <div class="login-container">
             <h4 class="title">黑马程序员 - 博客管理员登录</h4>
             <div class="login">
-                <form action="/login" method="post" id="loginForm">
+                <form action="/admin/login" method="post" id="loginForm">
                     <div class="form-group">
                         <label>邮件</label>
                         <input name="email" type="email" class="form-control" placeholder="请输入邮件地址">

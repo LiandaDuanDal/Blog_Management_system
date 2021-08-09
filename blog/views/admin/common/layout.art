@@ -10,8 +10,7 @@
 </head>
 
 <body>
-{{include './header.art'}}
-{{include './aside.art'}}
+
     <!-- 主体内容 -->
     {{block 'main_content'}}{{/block}}
     <!-- /主体内容 -->

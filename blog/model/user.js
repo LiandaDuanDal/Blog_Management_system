@@ -1,6 +1,31 @@
 // import mongoose
 const mongoose = require('mongoose');
+// 
+const bcrypt = require('bcrypt');
 
+// async function run() {
+//     const salt = await bcrypt.genSalt(10);
+//     console.log("salt------>", salt);
+//     const plain_text = "12345678";
+//     console.log("plain_text---->", plain_text);
+//     const encryptPassword = await bcrypt.hash(plain_text, salt);
+//     console.log("加密之后--->", encryptPassword)
+// }
+async function createUser() {
+    const salt = await bcrypt.genSalt(10);
+    const plain_text = "12345678";
+    const encryptPassword = await bcrypt.hash(plain_text, salt);
+    const user = await User.create({
+        username: 'duanlianda',
+        email: 'ln387408@dal.ca',
+        password: encryptPassword,
+        role: 'admin',
+        state: 0
+    });
+}
+// 
+// createUser();
+// 
 const userSchema = new mongoose.Schema({
     username: {
         type: String,

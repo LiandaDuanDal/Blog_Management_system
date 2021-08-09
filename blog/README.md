@@ -51,9 +51,9 @@ get请求会把表单内容放到地址栏。
 
 ## git命令剪贴板
 
-```
+```bash
 git add .
-git commit -m "login page"
+git commit -m "完成一个不完善的用户密码在数据库中的加密功能"
 git push origin master
 ```
 
