@@ -45,6 +45,7 @@ admin.post('/login', async (req, res) => {
             // 登录成功
             // 将用户名春出在请求对象中
             req.username = user.username;
+            // 回传登录成功信息
             res.send('登录成功');
         } else {
             console.log("密码验证未通过");
