@@ -14,6 +14,11 @@ admin.get('/login', (req, res) => {
     console.log("admin get ---admin/login.art---called")
     res.render('admin/login.art');
 });
+admin.get('/user', (req, res) => {
+    res.render('admin/user.art', {
+        msg: req.username
+    });
+})
 
 admin.get('/list', (req, res) => {
     console.log("admin get ---admin/list.art---called")
@@ -37,6 +42,9 @@ admin.post('/login', async (req, res) => {
         // 将客户端传递过来的密码和数据库中的密码进行比对
         let isValid = await bcrypt.compare(password, user.password);
         if (isValid) {
+            // 登录成功
+            // 将用户名春出在请求对象中
+            req.username = user.username;
             res.send('登录成功');
         } else {
             console.log("密码验证未通过");

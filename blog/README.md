@@ -53,7 +53,7 @@ get请求会把表单内容放到地址栏。
 
 ```bash
 git add .
-git commit -m "完成一个不完善的用户密码在数据库中的加密功能"
+git commit -m "添加不完善的登录功能"
 git push origin master
 ```
 
