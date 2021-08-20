@@ -53,7 +53,7 @@ get请求会把表单内容放到地址栏。
 
 ```bash
 git add .
-git commit -m "使用第三方模块做格式验证"
+git commit -m "错误信息的重定向"
 git push origin master
 ```
 
