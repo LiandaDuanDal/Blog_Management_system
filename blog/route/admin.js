@@ -2,7 +2,7 @@
 const express = require('express');
 // setup applicaiton
 const admin = express();
-// import user.js
+// import user.js   
 // 解构出User
 const { User } = require('../model/user.js');
 // 
@@ -15,8 +15,8 @@ admin.get('/login', (req, res) => {
     res.render('admin/login.art');
 });
 admin.get('/user', (req, res) => {
-    res.render('admin/user.art', {
-        msg: req.username
+    res.render('admin/user', {
+        msg: req.session.username
     });
 })
 
@@ -44,9 +44,14 @@ admin.post('/login', async (req, res) => {
         if (isValid) {
             // 登录成功
             // 将用户名春出在请求对象中
-            req.username = user.username;
+            // req.username = user.username;
+            req.session.username = user.username;
+            console.log("session====>", req.session);
             // 回传登录成功信息
-            res.send('登录成功');
+            // res.send('登录成功');
+            // 在req中可以拿到app    
+            req.app.locals.userInfo = user;
+            res.redirect('/admin/user');
         } else {
             console.log("密码验证未通过");
             res.status(400).render('admin/error', { msg: '邮箱地址或者密码错误' });

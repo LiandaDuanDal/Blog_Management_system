@@ -12,6 +12,7 @@
         <div class="profile dropdown fr">
             <span class="btn dropdown-toggle" data-toggle="dropdown">
                 admin
+                {{userInfo.username}}
                 <span class="caret"></span>
             </span>
             <ul class="dropdown-menu">

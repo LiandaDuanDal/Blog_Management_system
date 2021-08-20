@@ -53,7 +53,7 @@ get请求会把表单内容放到地址栏。
 
 ```bash
 git add .
-git commit -m "修复header无法正常显示的问题"
+git commit -m "将用户信息放到公共部分以便各个模板访问"
 git push origin master
 ```
 
