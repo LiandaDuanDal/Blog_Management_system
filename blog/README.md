@@ -53,7 +53,7 @@ get请求会把表单内容放到地址栏。
 
 ```bash
 git add .
-git commit -m "将用户信息放到公共部分以便各个模板访问"
+git commit -m "实现登录拦截 未登录则跳转到登录界面"
 git push origin master
 ```
 

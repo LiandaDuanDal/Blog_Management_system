@@ -33,8 +33,31 @@ app.use(express.static(path.join(__dirname, 'public')));
 const home = require('./route/home.js');
 const admin = require('./route/admin.js');
 // configure use midlleware
+app.use('/admin', (req, res) => {
+    // 拦截用户请求，判断用户的登录状态
+    //判断用户访问的是否为登录界面
+    // 如果用户是登录的=====>请求放行
+    // 如果用户不是登录的===>请求重定向到登录界面
+
+    // 访问的不是登录界面 && 没有登录
+    if (req.url != '/login' && !req.session.username) {
+        res.redirect('/admin/login');
+    } else {
+        // 用户是登录状态，将请求放行
+        req.next();
+    }
+
+
+});
+// configure use midlleware
 app.use('/home', home);
 app.use('/admin', admin);
+
+
+
+
+
+
 // Listen to the port number
 // when the application is deploye on the server it should be 80
 app.listen(3000);
