@@ -1,6 +1,4 @@
 {{extend './common/layout.art'}}
-{{include './header.art'}}
-{{include './aside.art'}}
 {{block 'main_content'}}
 <div class="content">
         <!-- 侧边栏 -->

@@ -18,7 +18,13 @@ admin.get('/list', (req, res) => {
 });
 // process login
 // use bodyparser
+// 创建用户编辑页面路由
+admin.get('/user-edit', require('./admin/user-edit.js'));
+//  创建登录路由
 admin.post('/login', require('./admin/login.js'));
+// 创建退出登录路由
 admin.get('/logout', require('./admin/logout.js'));
+// 创建实现用户添加功能路由
+admin.post('/user-edit', require('./admin/user-edit-fn.js'));
 module.exports = admin
 
