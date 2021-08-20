@@ -53,7 +53,7 @@ get请求会把表单内容放到地址栏。
 
 ```bash
 git add .
-git commit -m "优化 不把具体功能写在app中"
+git commit -m "继续优化，将admin.js变得更加整洁干净"
 git push origin master
 ```
 
