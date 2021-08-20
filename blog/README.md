@@ -53,7 +53,7 @@ get请求会把表单内容放到地址栏。
 
 ```bash
 git add .
-git commit -m "错误信息的重定向"
+git commit -m "Joi新的api更新 https://joi.dev/api/?v=17.4.2"
 git push origin master
 ```
 
