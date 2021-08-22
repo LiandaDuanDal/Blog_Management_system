@@ -46,6 +46,20 @@ get请求会把表单内容放到地址栏。
 
 做服务器端验证的必要性：如果用户禁用了js那么客户端的验证就会失败。
 
+# 不小心提交了一个很大的文件不想要了，回滚到上一个commit版本
+
+- 第一步：回滚上一次提交
+
+> git reset --hard HEAD^
+
+就很简单，回滚master分支的上一次提交。
+
+- 第二步：强制提交本地代码
+
+> git push origin master -f
+
+由于本地reset 之后本地库落后于远程N个版本，所以需要强制提交。
+
 
 
 
@@ -53,7 +67,7 @@ get请求会把表单内容放到地址栏。
 
 ```bash
 git add .
-git commit -m "Joi新的api更新 https://joi.dev/api/?v=17.4.2"
+git commit -m "重新设置数据库 mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file"
 git push origin master
 ```
 
