@@ -79,7 +79,7 @@ mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
 
 ```bash
 git add .
-git commit -m "处理用户显示页面user.art"
+git commit -m "数据分页查询-实现分页的核心功能"
 git push origin master
 ```
 
