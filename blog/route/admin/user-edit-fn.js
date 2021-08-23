@@ -1,5 +1,7 @@
 // 引入joi模块做规则验证
 const Joi = require('joi');
+// 引入用户集合的构造函数
+const { User } = require('../../model/user.js');
 
 module.exports = async (req, res) => {
     // res.send('ok');
@@ -30,8 +32,17 @@ module.exports = async (req, res) => {
     } catch (e) {
         // 验证没有通过
         // res.send(e.message);
-        res.redirect(`/admin/user-edit?message=${e.message}`);
+        return res.redirect(`/admin/user-edit?message=${e.message}`);
     }
+    // 根据邮箱地址查询用户是否存在
+    // 引入用户集合的构造函数
+    user = await User.findOne({ email: req.body.email });
+    if (user) {
+        return res.redirect(`/admin/user-edit?message=邮箱已存在, 请勿重复添加用户`);
+    }
+    res.send(user);
+
+
 
 };
 

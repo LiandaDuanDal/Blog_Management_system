@@ -60,6 +60,18 @@ get请求会把表单内容放到地址栏。
 
 由于本地reset 之后本地库落后于远程N个版本，所以需要强制提交。
 
+# 数据库
+
+
+
+## 重新定位并启动数据库
+
+```bash
+mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
+```
+
+## 关闭数据库
+
 
 
 
@@ -67,7 +79,7 @@ get请求会把表单内容放到地址栏。
 
 ```bash
 git add .
-git commit -m "重新设置数据库 mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file"
+git commit -m "添加邮箱重复性验证"
 git push origin master
 ```
 
