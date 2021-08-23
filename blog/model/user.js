@@ -1,3 +1,5 @@
+// 引入joi模块做规则验证
+const Joi = require('joi');
 // import mongoose
 const mongoose = require('mongoose');
 // 
@@ -73,8 +75,27 @@ const User = mongoose.model('User', userSchema);
 // expose the use schema
 // module.exports = user;
 // 将用户作为模块成员进行导出，将来可能还要导出其他的东西
-console.log("导入用户模型~~~~");
+// console.log("导入用户模型~~~~");
+const validateUser = (user) => {
+    const validationSchema = Joi.object({
+        username: Joi.string().min(2).max(12).required().error(new Error('用户名不符合验证--自定义提示')),
+        email: Joi.string().email().required().error(new Error('email不符合验证--自定义提示')),
+        password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).required().error(new Error('password不符合验证--自定义提示')),
+        role: Joi.string().valid('normal', 'admin').required().error(new Error('role不符合验证--自定义提示')),
+        state: Joi.number().valid(0, 1).required().error(new Error('state不符合验证--自定义提示')),
+
+    });
+    console.log("进入Joi比对程序----user.js");
+    // 新版的Joi验证接口有变化
+    // 官方文档连接:https://joi.dev/api/?v=17.4.2
+    // 不直接处理，返回到函数的外部进行处理
+    return validationSchema.validateAsync(req.body);
+}
+
+
+
 
 module.exports = {
-    User
+    User,
+    validateUser
 }
