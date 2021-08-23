@@ -2,6 +2,8 @@
 const Joi = require('joi');
 // 引入用户集合的构造函数
 const { User } = require('../../model/user.js');
+// 引入加密模块
+const bcrypt = require('bcrypt');
 
 module.exports = async (req, res) => {
     // res.send('ok');
@@ -40,8 +42,25 @@ module.exports = async (req, res) => {
     if (user) {
         return res.redirect(`/admin/user-edit?message=邮箱已存在, 请勿重复添加用户`);
     }
-    res.send(user);
-
+    console.log("对密码进行加密处理")
+    // res.send(user);
+    // 对密码进行加密处理
+    // 生成随机字符串
+    const salt = await bcrypt.genSalt(10);
+    // 加密
+    // bcrypt.hash(req.body.password, salt);
+    // 使用秘钥
+    const password = await bcrypt.hash(req.body.password, salt);
+    // 替换body中的加密后的密码
+    req.body.password = password;
+    // 检查加密情况
+    // res.send(password);
+    // 将用户信息添加到数据库
+    console.log("将新用户信息插入数据库");
+    // 
+    await User.create(req.body);
+    // 重定向回到用户列表页面
+    res.redirect('/admin/user');
 
 
 };

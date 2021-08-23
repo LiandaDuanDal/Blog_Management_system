@@ -79,7 +79,7 @@ mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
 
 ```bash
 git add .
-git commit -m "添加邮箱重复性验证"
+git commit -m "对明文密码进行加密-完成用户添加并重定向到用户列表user"
 git push origin master
 ```
 
