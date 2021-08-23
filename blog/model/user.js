@@ -89,11 +89,8 @@ const validateUser = (user) => {
     // 新版的Joi验证接口有变化
     // 官方文档连接:https://joi.dev/api/?v=17.4.2
     // 不直接处理，返回到函数的外部进行处理
-    return validationSchema.validateAsync(req.body);
+    return validationSchema.validateAsync(user);
 }
-
-
-
 
 module.exports = {
     User,

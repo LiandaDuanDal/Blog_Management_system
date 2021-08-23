@@ -40,7 +40,15 @@ app.use('/home', home);
 app.use('/admin', admin);
 
 
-
+// 错误处理中间件    
+app.use((err, req, res, next) => {
+    console.log("触发错误处理中间件");
+    // 将字符串转换为对象类型
+    // JSON。pars():
+    const result = JSON.parse(err);
+    // res.redirect(`/admin/user-edit?message=${e.message}`);
+    res.redirect(`${result.path}?message=${result.message}`);
+})
 
 
 

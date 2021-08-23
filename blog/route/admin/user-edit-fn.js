@@ -5,7 +5,7 @@ const { User, validateUser } = require('../../model/user.js');
 // 引入加密模块
 const bcrypt = require('bcrypt');
 
-module.exports = async (req, res) => {
+module.exports = async (req, res, next) => {
     // res.send('ok');
     // 接收客户端传过来的参数
     // res.send(req.body);
@@ -32,17 +32,28 @@ module.exports = async (req, res) => {
         // 官方文档连接:https://joi.dev/api/?v=17.4.2
         // await validationSchema.validateAsync(req.body);
         // 使用经过优化导出的验证器验证信息的合法性
-        await validateUser(req.body);
+        const awaitresult = await validateUser(req.body);
     } catch (e) {
         // 验证没有通过
         // res.send(e.message);
-        return res.redirect(`/admin/user-edit?message=${e.message}`);
+        // return res.redirect(`/admin/user-edit?message=${e.message}`);
+        // 调用next方法
+        // 同时代码停止向下执行
+        // 把对象转换成字符串类型
+        // JSON.stringify()
+        // 调用next就会触发错误处理中间件
+        console.log("比对异常--准备进入错误处理中间件");
+        console.log("e----", e);
+        return next(JSON.stringify({ path: '/admin/user-edit', message: e.message }));
+        // return next()
     }
     // 根据邮箱地址查询用户是否存在
     // 引入用户集合的构造函数
     user = await User.findOne({ email: req.body.email });
     if (user) {
-        return res.redirect(`/admin/user-edit?message=邮箱已存在, 请勿重复添加用户`);
+        console.log("使用错误处理中间件来处理邮箱重复的情况");
+        return next(JSON.stringify({ path: '/admin/user-edit', message: '邮箱已存在, 请勿重复添加用户' }))
+        // return res.redirect(`/admin/user-edit?message=邮箱已存在, 请勿重复添加用户`);
     }
     console.log("对密码进行加密处理")
     // res.send(user);
