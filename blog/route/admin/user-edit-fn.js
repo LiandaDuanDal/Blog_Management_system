@@ -74,8 +74,6 @@ module.exports = async (req, res, next) => {
     await User.create(req.body);
     // 重定向回到用户列表页面
     res.redirect('/admin/user');
-
-
 };
 
 
