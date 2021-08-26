@@ -79,7 +79,7 @@ mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
 
 ```bash
 git add .
-git commit -m "实现选择性显示 隐藏密码修改选项"
+git commit -m "密码输入错误则无法更改密码 ㊙️"
 git push origin master
 ```
 
@@ -89,3 +89,4 @@ git push origin master
 
 {{@ value }}      -- 原样输出（变量前加@符号）
 
+密码：12345678

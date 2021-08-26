@@ -26,5 +26,7 @@ admin.post('/login', require('./admin/login.js'));
 admin.get('/logout', require('./admin/logout.js'));
 // 创建实现用户添加功能路由
 admin.post('/user-edit', require('./admin/user-edit-fn.js'));
+
+admin.post('/user-modify', require('./admin/user-modify.js'))
 module.exports = admin
 

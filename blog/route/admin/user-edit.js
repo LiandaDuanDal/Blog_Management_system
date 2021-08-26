@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
         res.render('admin/user-edit', {
             message: message,
             user: user,
-            link: '/admin/user-add',
+            link: '/admin/user-modify?id=' + id,
             button: '修改'
         });
 

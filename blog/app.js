@@ -47,7 +47,20 @@ app.use((err, req, res, next) => {
     // JSON。pars():
     const result = JSON.parse(err);
     // res.redirect(`/admin/user-edit?message=${e.message}`);
-    res.redirect(`${result.path}?message=${result.message}`);
+    // res.redirect(`${result.path}?message=${result.message}`);
+
+    // let obj = { path: '/admin/user-edit', message: "密码错误无法进行密码修改", id: id };
+    // next(JSON.stringify(obj))
+    let params = [];
+    for (let attr in result) {
+        if (attr != 'path') {
+            params.push(attr + '=' + result[attr]);
+        };
+    }
+    res.redirect(`${result.path}?${params.join('&')}`);
+
+
+
 })
 
 
@@ -57,5 +70,5 @@ app.use((err, req, res, next) => {
 app.listen(3000);
 console.log("Server Started, please access localhost")
 // access link
-// http://localhost:3000/admin/login
 // http://localhost:3000/123/login
+// http://localhost:3000/admin/login

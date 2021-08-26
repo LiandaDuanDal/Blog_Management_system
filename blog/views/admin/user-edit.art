@@ -42,7 +42,7 @@
                     </select>
                 </div>
                 <div class="buttons">
-                    <input type="submit" class="btn btn-primary" value="{{button}}">
+                    <input type="submit" class="btn btn-primary" value="{{button}}" link="{{link}}">
                 </div>
             </form>
         </div>
