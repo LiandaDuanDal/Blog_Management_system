@@ -79,7 +79,13 @@ mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
 
 ```bash
 git add .
-git commit -m "实现点击页码换页面 左右切换页面 用inline替换block =在老模板是输出的意思"
+git commit -m "实现选择性显示 隐藏密码修改选项"
 git push origin master
 ```
+
+
+
+其它笔记：
+
+{{@ value }}      -- 原样输出（变量前加@符号）
 
