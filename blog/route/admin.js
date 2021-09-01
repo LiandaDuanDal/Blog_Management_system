@@ -30,5 +30,12 @@ admin.get('/delete', require('./admin/user-delete.js'));
 admin.post('/user-edit', require('./admin/user-edit-fn.js'));
 
 admin.post('/user-modify', require('./admin/user-modify.js'));
+
+// 文章列表页面路由
+admin.get('/article', require('./admin/article.js'));
+// 文章编辑页面路由
+admin.get('/article-edit', require('./admin/article-edit.js'));
+
+
 module.exports = admin
 

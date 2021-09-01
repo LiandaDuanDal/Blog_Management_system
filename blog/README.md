@@ -79,7 +79,7 @@ mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
 
 ```bash
 git add .
-git commit -m "完成用户删除功能"
+git commit -m "建立文章管理路由并调整转跳连接"
 git push origin master
 ```
 
