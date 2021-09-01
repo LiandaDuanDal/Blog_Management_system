@@ -1,7 +1,8 @@
 const { User } = require('../../model/user');
 module.exports = async (req, res) => {
     // 获取地址栏中的id参数
-
+    // 这是一个标识，标识当前访问的是用户管理页面
+    req.app.locals.currentLink = 'user';
     // 由于之前设置了环境，模板的根目录是从view开始的
     // res.render('admin/user-edit.art');
     console.log("解构请求内容:", req.query);

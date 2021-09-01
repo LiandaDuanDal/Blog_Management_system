@@ -4,7 +4,8 @@ const { User } = require('../../model/user.js');
 
 module.exports = async (req, res) => {
     // 将用户信息从数据库中查询出来
-
+    // 这是一个标识，标识当前访问的是用户管理页面
+    req.app.locals.currentLink = 'user';
 
     // res.render('admin/user', {
     //     msg: req.session.username
