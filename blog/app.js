@@ -59,8 +59,6 @@ app.use((err, req, res, next) => {
     }
     res.redirect(`${result.path}?${params.join('&')}`);
 
-
-
 })
 
 

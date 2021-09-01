@@ -79,7 +79,7 @@ mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
 
 ```bash
 git add .
-git commit -m "密码比对成功的请求处理 ㊙️ - 将错误处理中间件的代码写的比较灵活，从而应付附带多种参数的错误并惊醒重定向，中间件use放在app.js里面"
+git commit -m "完成用户删除功能"
 git push origin master
 ```
 

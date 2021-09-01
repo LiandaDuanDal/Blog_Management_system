@@ -24,9 +24,11 @@ admin.get('/user-edit', require('./admin/user-edit.js'));
 admin.post('/login', require('./admin/login.js'));
 // 创建退出登录路由
 admin.get('/logout', require('./admin/logout.js'));
+// 添加用户删除处理路由
+admin.get('/delete', require('./admin/user-delete.js'));
 // 创建实现用户添加功能路由
 admin.post('/user-edit', require('./admin/user-edit-fn.js'));
 
-admin.post('/user-modify', require('./admin/user-modify.js'))
+admin.post('/user-modify', require('./admin/user-modify.js'));
 module.exports = admin
 

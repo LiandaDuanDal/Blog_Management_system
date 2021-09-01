@@ -12,10 +12,12 @@
 <body>
 // fix
     {{include './header.art'}}
-    // {{block 'main_content'}}{{/block}}
     <!-- 主体内容 -->
     {{block 'main_content'}}{{/block}}
     <!-- /主体内容 -->
+    <script src="/admin/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/admin/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/admin/js/common.js"></script>
     {{block 'private_script'}}{{/block}}
 
 </body>
