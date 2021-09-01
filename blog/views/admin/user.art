@@ -2,7 +2,7 @@
 {{block 'main_content'}}
 <div class="content">
     	<!-- 侧边栏 -->
-        {{include "./common/aside.art"}}
+{{include "./common/aside.art"}}
         <!-- 侧边栏 -->
         <div class="main">
         	<!-- 分类标题 -->
