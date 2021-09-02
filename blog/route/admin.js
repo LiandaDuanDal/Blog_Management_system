@@ -35,6 +35,8 @@ admin.post('/user-modify', require('./admin/user-modify.js'));
 admin.get('/article', require('./admin/article.js'));
 // 文章编辑页面路由
 admin.get('/article-edit', require('./admin/article-edit.js'));
+// 实现文章添加功能路由
+admin.post('/article-add', require('./admin/article-add.js'));
 
 
 module.exports = admin

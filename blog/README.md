@@ -79,7 +79,7 @@ mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
 
 ```bash
 git add .
-git commit -m "让当前活跃的按钮编程active"
+git commit -m "完成文章模板路由初级功能"
 git push origin master
 ```
 
