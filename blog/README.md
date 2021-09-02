@@ -74,12 +74,11 @@ mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
 
 
 
-
 ## git命令剪贴板
 
 ```bash
 git add .
-git commit -m "完成文章模板路由初级功能"
+git commit -m "实现foemidable基本代码"
 git push origin master
 ```
 
