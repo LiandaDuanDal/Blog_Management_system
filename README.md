@@ -78,7 +78,7 @@ mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
 
 ```bash
 git add .
-git commit -m "显示作者和封面图片"
+git commit -m "插入文章数据到数据库"
 git push origin master
 ```
 

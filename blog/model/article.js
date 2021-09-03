@@ -12,7 +12,7 @@ const articleSchema = new mongoose.Schema({
     // 作者
     author: {
         // 在author里面存储的实际上是_id
-        type: mongodb.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: [true, '请填写作者参数']
     },
@@ -36,5 +36,5 @@ const Article = mongoose.model('Article', articleSchema);
 // 4. 将集合作为模块成员进行导出
 
 module.exports = {
-    Article: Article
-};
+    Article
+}
