@@ -1,18 +1,28 @@
 // 导入文章集合的构造函数以查询所有文章的数据
 const { Article } = require('../../model/article.js');
+// 
+const pagination = require('mongoose-sex-page');
+// 
+const JSON = require('JSON')
 
 module.exports = async (req, res) => {
+    // 接收客户端传递过来的页码
+    const page = req.query.page;
     // 这是一个标识，标识当前访问的是文章管理
     req.app.locals.currentLink = 'article';
     console.log("正在访问文章路由");
     // 查询所有文章数据  
     // 这里涉及到多集合联合查询
     // 后面加lean是解决JSON类型的bug
-    let articles = await Article.find().populate('author').lean();
+    let articles = await pagination(Article).find().page(page).size(2).display(3).populate('author').exec();
+
+    articals = JSON.stringify(articles);
+    articles = JSON.parse(articals);
     // let articles = await Article.find();
     // console.log("获取文章列表成功");
     // console.log(articles);
-    // res.send(articles[0].author.username);
+    // res.send(articles);
+
     // 渲染文章列表模板
     res.render('admin/article.art', {
         articles: articles

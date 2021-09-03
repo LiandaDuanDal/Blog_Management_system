@@ -78,7 +78,7 @@ mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
 
 ```bash
 git add .
-git commit -m "日期格式规范化 yyyy-mm-dd"
+git commit -m "数据库分页查询 mongoose-sex-page"
 git push origin master
 ```
 
