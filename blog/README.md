@@ -78,7 +78,7 @@ mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
 
 ```bash
 git add .
-git commit -m "实现foemidable基本代码"
+git commit -m "显示作者和封面图片"
 git push origin master
 ```
 

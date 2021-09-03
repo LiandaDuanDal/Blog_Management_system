@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label>作者</label>
-                    <input name="author" type="text" class="form-control" readonly>
+                    <input name="author" type="text" class="form-control" readonly value="{{@userInfo._id}}">
                 </div>
                 <div class="form-group">
                     <label>发布时间</label>
@@ -31,9 +31,12 @@
                 
                 <div class="form-group">
                    <label for="exampleInputFile">文章封面</label>
-                   <input name="cover" type="file">
+                <!-- 
+                    multiple=‘True' 表示允许用户一次性选择多个文件
+                 -->
+                   <input name="cover" type="file" id="file">
                    <div class="thumbnail-waper">
-                       <img class="img-thumbnail" src="">
+                       <img class="img-thumbnail" src="" id="preview">
                    </div>
                 </div>
                 <div class="form-group">
@@ -67,5 +70,26 @@
 
         // 获取数据
         // const editorData = editor.getData();
+        var file = document.querySelector('#file');
+        var perview = document.querySelector('#perview');
+        // 
+        file.onchange = function (){
+            // 1.创建文件读取对象
+            var reader = new FileReader();
+            // file list created by users
+            // this.代表文件本身  files代表文件列表
+            // 如果要允许多个文件可以更改multiple属性实现
+            // console.log(this.files[0]);
+            // 2. 读取文件
+            // 这是一个异步方法不能直接拿到返回值
+            reader.readAsDataURL(this.files[0]);
+            // 异步方法通过使用监听onload事件 来获取执行结果
+            // 这个二进制直接放到img标签里面就可以直接显示出来
+            reader.onload = function (){
+                console.log(reader.result);
+                // 将文件读取的结果显示到页面中
+                preview.src = reader.result;
+            }
+        }
     </script>
 {{/block}}

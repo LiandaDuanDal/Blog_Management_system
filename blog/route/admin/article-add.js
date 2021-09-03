@@ -14,7 +14,9 @@ module.exports = (req, res) => {
     // err--->null:假设上传成功
     console.log("正在解析上传的文章内容");
     form.parse(req, (err, fields, files) => {
-        console.log(fields);
+        console.log("fields--->", fields);
+        console.log("files--->", files);
+        console.log("err--->", err);
         res.send(files);
     });
 
