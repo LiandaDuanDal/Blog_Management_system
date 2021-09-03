@@ -29,7 +29,7 @@
                         <!-- 原文输出@ -->
                         <td>{{@$value._id}}</td>
                         <td>{{$value.title}}</td>
-                        <td>{{$value.publishDate}}</td>
+                        <td>{{dateFormat($value.publishDate,'yyyy年-mm-dd')}}</td>
                         <td>{{$value.author.username}}</td>
                         <td>
                             <a href="article-edit.html" class="glyphicon glyphicon-edit"></a>

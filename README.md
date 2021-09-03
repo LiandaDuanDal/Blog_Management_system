@@ -78,7 +78,7 @@ mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
 
 ```bash
 git add .
-git commit -m "文章列表页面的数据展示功能 关于find().populate('xxx').lean()"
+git commit -m "日期格式规范化 yyyy-mm-dd"
 git push origin master
 ```
 

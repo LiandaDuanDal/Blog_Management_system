@@ -8,6 +8,10 @@ const path = require('path');
 const bodyParser = require('body-parser');
 // 导入session模块 
 const session = require('express-session');
+// 导入dateFormat第三方模块
+const dateFormat = require('dateformat');
+// 
+const template = require('art-template');
 // =============================================================================
 // connect to the database
 require('./database/connect.js');
@@ -24,7 +28,11 @@ app.set('views', path.join(__dirname, 'views'));
 // telll express about the template tail
 app.set('view engine', 'art');
 // what temolate engine is used
+// 下载这个的时候art-template也顺便下载好了
 app.engine('art', require('express-art-template'));
+// 向模板中导入外部变量
+// 这样就可以直接在模板中使用这个变量了
+template.defaults.imports.dateFormat = dateFormat;
 
 // =============================================================================
 // expose stastic file
