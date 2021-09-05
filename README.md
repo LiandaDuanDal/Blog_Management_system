@@ -67,10 +67,27 @@ get请求会把表单内容放到地址栏。
 ## 重新定位并启动数据库
 
 ```bash
-mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
+mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file --logpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file/log/mongodb.log
 ```
 
-## 关闭数据库
+原始conf文件备份：
+
+```bash
+systemLog:
+  destination: file
+  path: /usr/local/var/log/mongodb/mongo.log
+  logAppend: true
+storage:
+  dbPath: /usr/local/var/mongodb
+net:
+  bindIp: 127.0.0.1
+security:
+    authorization: enabled
+```
+
+
+
+##关闭数据库
 
 
 
@@ -78,7 +95,7 @@ mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file
 
 ```bash
 git add .
-git commit -m "数据库分页查询 mongoose-sex-page"
+git commit -m "添加 --auth属性，使用用户名密码登录数据库 增加安全性"
 git push origin master
 ```
 
@@ -89,3 +106,140 @@ git push origin master
 {{@ value }}      -- 原样输出（变量前加@符号）
 
 密码：12345678
+
+# 给mongoDB添加数据库账号
+
+windows用户应该用管理员的方式运行power shell
+
+1：连接数据库
+
+```bash
+ mongo
+```
+
+2：查看数据库 
+
+```bash
+show dbs
+```
+
+3：切换到admin数据库 
+
+```bash
+use admin
+```
+
+3：创建超级管理员账户 
+
+```bash
+db.createUser()
+```
+
+6:  切换到blog数据 
+
+```bash
+use blog
+```
+
+
+
+## 将自动启动数据库的服务卸载掉（windwos）
+
+创建mongoddb服务： 
+
+```
+mongod --logpath="路径" --install -auth
+```
+
+启动monggodb服务：
+
+```bash
+net start mongodb
+```
+
+1：停止服务
+
+```
+ net stop mongodb
+```
+
+2：mongod --remove
+
+## 让mongoDB附带安全选项
+
+```bash
+To restart MongoDB with access control, run the mongod process from your terminal with the --auth option. The mongod process is located in a bin folder in the MongoDB installation directory.
+
+mongod --dbpath <path to data directory> --auth
+```
+
+
+
+## 杂记
+
+1：Mac检查pid
+
+https://www.chriswrites.com/how-to-view-and-kill-processes-using-the-terminal-in-mac-os-x/
+
+```bash
+(base) ➜  ps     
+  PID TTY           TIME CMD
+  561 ttys000    0:00.31 -zsh
+29634 ttys000    0:02.22 mongod --dbpath /Users/lianda_duan/Desktop/B
+  566 ttys001    0:00.38 -zsh
+  792 ttys002    0:00.25 /bin/zsh -l
+  799 ttys003    0:00.33 /bin/zsh -l
+29684 ttys003    0:00.33 node /usr/local/bin/nodemon app.js
+29695 ttys003    0:01.18 /usr/local/bin/node app.js
+16106 ttys004    0:00.24 -zsh
+
+```
+
+
+
+https://blog.csdn.net/u013066244/article/details/117171334
+
+
+
+## 创建账号并启用管理员权限的过程（mac）
+
+https://blog.csdn.net/u013066244/article/details/117171334
+
+包括创建管理员账号adimin和普通账号itcast
+
+```bash
+> use admin
+switched to db admin
+> db.createUser({user:'root',pwd:'root',roles:['root']})
+Successfully added user: { "user" : "root", "roles" : [ "root" ] }
+> db.createUser({user:'itcast',pwd:'itcast',roles:['readWrite']})
+Successfully added user: { "user" : "itcast", "roles" : [ "readWrite" ] }
+> exit
+bye
+```
+
+使用sublime打开配置文件
+
+```bash
+subl /usr/local/etc/mongod.conf
+```
+
+```bash
+systemLog:
+  destination: file
+  path: /usr/local/var/log/mongodb/mongo.log
+  logAppend: true
+storage:
+  dbPath: /usr/local/var/mongodb
+net:
+  bindIp: 127.0.0.1
+security:
+    authorization: enabled
+```
+
+
+
+
+
+
+
