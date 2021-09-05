@@ -22,6 +22,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({ secret: 'my-own-secretkey' }));
 // import and setup user
 require('./model/user.js');
+
+//使用process对象
+// 获取系统的环境变量
+console.log("当前环境变量~", process.env.NODE_ENV)
+if (process.env == "production") {
+    console.log("=====当前是生产环境=====");
+} else {
+    console.log("=====当前是开发环境=====");
+}
+// 
+// console.log("当前环境变量~", process.env)
+// 参考命令--->NODE_ENV=production node app.js
+// 参考命令--->NODE_ENV=development node app.js
 // =============================================================================
 // tell express about the template path
 app.set('views', path.join(__dirname, 'views'));

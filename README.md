@@ -95,11 +95,18 @@ security:
 
 ```bash
 git add .
-git commit -m "添加 --auth属性，使用用户名密码登录数据库 增加安全性"
+git commit -m "关于开发环境与生产环境 process.env"
 git push origin master
 ```
 
 
+
+### 带有环境变量NODE_ENV=production/development的启动命令
+
+```bash
+// 参考命令--->NODE_ENV=production node app.js
+// 参考命令--->NODE_ENV=development node app.js
+```
 
 其它笔记：
 
@@ -172,6 +179,12 @@ To restart MongoDB with access control, run the mongod process from your termina
 
 mongod --dbpath <path to data directory> --auth
 ```
+
+### Mac上配置nodejs环境变量用于判断当前代码环境是开发环境还是生产部署环境
+
+
+
+
 
 
 
