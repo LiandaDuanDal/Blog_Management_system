@@ -27,6 +27,10 @@ require('./model/user.js');
 
 //使用process对象
 // 获取系统的环境变量
+// 1.生产环境参考命令-- -> NODE_ENV=production nodemon app.js
+// 2.开发环境参考命令-- -> NODE_ENV=development nodemon app.js
+
+// ps：这里用node和nodemon都可以，node的话不会在保存js文件的时候重启服务
 console.log("当前环境变量~", process.env.NODE_ENV)
 if (process.env.NODE_ENV == "development") {
     console.log("=====当前是开发环境=====");

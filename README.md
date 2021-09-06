@@ -99,11 +99,11 @@ security:
 
 
 
-## git命令剪贴板
+## ！！！！git命令剪贴板
 
 ```bash
 git add .
-git commit -m "使用morgan模块让服务器在不同环境（开发、生产）环境下决定是否打印请求的细节"
+git commit -m "10132545___用config模块将数据库的配置信息写到文件中"
 git push origin master
 ```
 
