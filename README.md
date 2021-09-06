@@ -103,7 +103,7 @@ security:
 
 ```bash
 git add .
-git commit -m "10132545___用config模块将数据库的配置信息写到文件中"
+git commit -m "10132546___将敏感信息春出在系统的环境变量中 这个特殊文件的名字是固定的custom-environment-variables.json 启动命令：NODE_ENV=development APP_PASSWORD=itcast nodemon app.js"
 git push origin master
 ```
 
@@ -112,8 +112,8 @@ git push origin master
 ### 带有环境变量NODE_ENV=production/development的启动命令
 
 ```bash
-1.生产环境参考命令--->NODE_ENV=production nodemon app.js
-2.开发环境参考命令--->NODE_ENV=development nodemon app.js
+1.生产环境参考命令--->NODE_ENV=production APP_PASSWORD=itcast nodemon app.js
+2.开发环境参考命令--->NODE_ENV=development APP_PASSWORD=itcast nodemon app.js
 
 ps：这里用node和nodemon都可以，node的话不会在保存js文件的时候重启服务
 ```
