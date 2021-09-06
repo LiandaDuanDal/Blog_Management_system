@@ -50,13 +50,21 @@ get请求会把表单内容放到地址栏。
 
 - 第一步：回滚上一次提交
 
+> ```bash
 > git reset --hard HEAD^
+> ```
+>
+> 
 
 就很简单，回滚master分支的上一次提交。
 
 - 第二步：强制提交本地代码
 
+> ```bash
 > git push origin master -f
+> ```
+>
+> 
 
 由于本地reset 之后本地库落后于远程N个版本，所以需要强制提交。
 
@@ -95,7 +103,7 @@ security:
 
 ```bash
 git add .
-git commit -m "关于开发环境与生产环境 process.env"
+git commit -m "使用morgan模块让服务器在不同环境（开发、生产）环境下决定是否打印请求的细节"
 git push origin master
 ```
 
@@ -104,8 +112,10 @@ git push origin master
 ### 带有环境变量NODE_ENV=production/development的启动命令
 
 ```bash
-// 参考命令--->NODE_ENV=production node app.js
-// 参考命令--->NODE_ENV=development node app.js
+1.生产环境参考命令--->NODE_ENV=production nodemon app.js
+2.开发环境参考命令--->NODE_ENV=development nodemon app.js
+
+ps：这里用node和nodemon都可以，node的话不会在保存js文件的时候重启服务
 ```
 
 其它笔记：
@@ -150,7 +160,7 @@ use blog
 
 
 
-## 将自动启动数据库的服务卸载掉（windwos）
+## 将自动启动数据库的服务卸载掉（windows）
 
 创建mongoddb服务： 
 
