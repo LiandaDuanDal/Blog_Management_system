@@ -103,7 +103,7 @@ security:
 
 ```bash
 git add .
-git commit -m "首页 文章详情页面 渲染模板 抽离公共区域"
+git commit -m "查询文章 呈现数据 解决关联查询结果类型不对无法渲染的问题"
 git push origin master
 ```
 
