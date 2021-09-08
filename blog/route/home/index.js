@@ -3,9 +3,12 @@ const { Article } = require('../../model/article');
 // 导入分页模块
 const pagination = require('mongoose-sex-page');
 module.exports = async (req, res) => {
+    // 接收客户端传递过来的页码
+    const page = req.query.page;
+
     // 客户端一次性显示5个页码-display(5)
     // 从数据库中查询数据
-    let result = await pagination(Article).page(1).size(2).display(5).find().populate('author').exec();
+    let result = await pagination(Article).page(page).size(4).display(5).find().populate('author').exec();
     // let result = await Article.find().populate('author');
     // res.send(result);
     // return;
