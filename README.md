@@ -103,7 +103,7 @@ security:
 
 ```bash
 git add .
-git commit -m "查询文章 呈现数据 解决关联查询结果类型不对无法渲染的问题"
+git commit -m "对数据的格式进行进一步处理"
 git push origin master
 ```
 

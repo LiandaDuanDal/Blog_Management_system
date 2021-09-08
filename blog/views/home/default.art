@@ -17,32 +17,17 @@
 				<a class="article-title" href="article.html">{{$value.title}}</a>
 				<div class="article-info">
 					<span class="author">{{$value.author.username}}</span>
-					<span>{{$value.publishDate}}</span>
+					<span>{{dateFormat($value.publishDate,'yyyy-mm-dd')}}</span>
 				</div>
 				<div class="brief">
 					<!-- 此处需要修查询出来的内容进行截取 -->
-					{{$value.content}}
+					<!-- 匹配所有的html标签并替换为空 -->
+					<!-- 尖括号内的除了大于号以外的出现一次或者多次 且全局匹配 -->
+					{{@$value.content.replace(/<[^>]+>/g,'').substr(0,10)+'...'}}
 				</div>
 			</div>
 		</li>
 		{{/each}}
-		
-		<li class="fl">
-			<a href="article.html" class="thumbnail">
-				<img src="images/1.jpg">
-			</a>
-			<div class="content">
-				<a class="article-title" href="article.html">阿里巴巴旗下的1688－VR市场 打造批发新体验</a>
-				<div class="article-info">
-					<span class="author">子霆</span>
-					<span>2020-09-10</span>
-				</div>
-				<div class="brief">
-					前言 “我们相信互联网的世界和实体的商业世界是一个世界。数字、数据化、技术，使得这两个世界走在一起，让这两个世界能够发生很美好的变化，创造更多的客户价值和商业价值。”—...
-				</div>
-			</div>
-		</li>
-		
 	</ul>
 	<!-- 文章列表结束 -->
 
