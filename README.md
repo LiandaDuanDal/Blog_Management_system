@@ -103,7 +103,7 @@ security:
 
 ```bash
 git add .
-git commit -m "10132546___将敏感信息春出在系统的环境变量中 这个特殊文件的名字是固定的custom-environment-variables.json 启动命令：NODE_ENV=development APP_PASSWORD=itcast nodemon app.js"
+git commit -m "首页 文章详情页面 渲染模板 抽离公共区域"
 git push origin master
 ```
 
