@@ -103,7 +103,7 @@ security:
 
 ```bash
 git add .
-git commit -m "用户评论功能 home和admin都应该使用express.Router()进行初始化"
+git commit -m "评论添加功能-设置表单-路由-将评论储存到数据库"
 git push origin master
 ```
 

@@ -24,10 +24,12 @@
 				<div class="article-comment">
 					
 					{{if age}}
-					<h4>评论</h4>
-					
-					<form class="comment-form">
-						<textarea class="comment"></textarea>
+					<h4>评论(已登录会展示本功能)</h4>
+					<form class="comment-form" action="/home/comment" method="post">
+						<textarea class="comment" name="content"></textarea>
+						<!-- 隐藏域 存储文章aid和用户uid-->
+						<input type="hidden" name="uid" value="{{@userInfo._id}}">
+						<input type="hidden" name="aid" value="{{@article._id}}">
 						<div class="items">
 							<input type="submit" value="提交">
 						</div>
