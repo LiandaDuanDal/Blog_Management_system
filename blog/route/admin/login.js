@@ -29,17 +29,21 @@ module.exports = async (req, res) => {
             req.session.username = user.username;
             console.log("session====>", req.session);
             //存储角色
+            console.log("正在存储当前用户角色-->", user.role);
             req.session.role = user.role;
-
             // 回传登录成功信息
             // res.send('登录成功');
-            // 在req中可以拿到app    
+            // 在req中可以拿到app
+            // user = JSON.parse(JSON.stringify(user));
             req.app.locals.userInfo = user;
+            req.app.locals.age = 1008623333;
+            console.log("userInfo 储存完毕", req.app.locals.userInfo);
             // 对用户的角色进行判断
             if (user.role == 'admin') {
                 // is admin---redirect to the user list
                 res.redirect('/admin/user');
             } else {
+                console.log("当前用户为普通用户")
                 res.redirect('/home');
             }
 

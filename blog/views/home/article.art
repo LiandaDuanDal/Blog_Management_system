@@ -18,8 +18,12 @@
 				</div>
 				<div class="article-content">
 					{{@article.content}}
+					{{@userInfo}}
+					{{@age}}
 				</div>
 				<div class="article-comment">
+					
+					{{if age}}
 					<h4>评论</h4>
 					
 					<form class="comment-form">
@@ -28,6 +32,9 @@
 							<input type="submit" value="提交">
 						</div>
 					</form>
+					{{else}}
+					<div><h2>先进行登录，再对文章进行评论</h2></div>
+					{{/if}}
 					<div class="comment-list">
 						<div class="mb10">
 							<div class="article-info">

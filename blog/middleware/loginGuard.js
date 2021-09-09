@@ -15,10 +15,10 @@ const guard = (req, res, next) => {
         // 用户是登录状态，将请求放行
         // 如果用户是登录状态并且是普通用户 重定向到博客首页并组织程序向下执行----by using return
         if (req.session.role == 'normal') {
-            console.log("用户是登录状态并且是普通用户 重定向到博客首页并组织程序向下执行");
+            console.log("用户是登录状态并且是normal 重定向到博客首页并阻止程序向下执行");
             return res.redirect('/home/');
         }
-        req.next();
+        next();
     }
 }
 

@@ -1,7 +1,11 @@
 // import express server
 const express = require('express');
 // setup applicaiton
-const admin = express();
+// 这里是个大问题！！！！！
+// 之前写成const admin = express()是错误的，会导致服务器将admin定义为一个单独的应用
+// 而不会跟home分router共享全局变量userInfo。
+// home和admin都应该使用express.Router()进行初始化
+const admin = express.Router();
 // import user.js   
 // 解构出User
 const { User } = require('../model/user.js');

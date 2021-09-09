@@ -66,14 +66,14 @@ template.defaults.imports.dateFormat = dateFormat;
 // expose stastic file
 app.use(express.static(path.join(__dirname, 'public')));
 // diffenencialize presentation and management pages
-const home = require('./route/home.js');
-const admin = require('./route/admin.js');
+// const home = require('./route/home.js');
+// const admin = require('./route/admin.js');
 // configure use midlleware
 // guard function
 app.use('/admin', require('./middleware/loginGuard.js'));
 // configure use midlleware
-app.use('/home', home);
-app.use('/admin', admin);
+app.use('/home', require('./route/home.js'));
+app.use('/admin', require('./route/admin.js'));
 
 
 // 错误处理中间件    
@@ -94,11 +94,7 @@ app.use((err, req, res, next) => {
         };
     }
     res.redirect(`${result.path}?${params.join('&')}`);
-
 })
-
-
-
 // Listen to the port number
 // when the application is deploye on the server it should be 80
 app.listen(3000);

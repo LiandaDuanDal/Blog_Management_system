@@ -3,7 +3,7 @@
     <!-- 网站标志 -->
     <div class="logo fl">
         <div class="logo fl">
-            DUANLIANDA's BLOG <i>ITHEIMA</i>
+            {{@age}}DUANLIANDA's BLOG <i>DUANLIANDA</i>
         </div>
     </div>
     <!-- /网站标志 -->
@@ -16,7 +16,7 @@
             </span>
             <ul class="dropdown-menu">
                 <li><a href="user-edit.html">个人资料</a></li>
-                <li><a href="#">退出登录</a></li>
+                <li><a href="/admin/logout">退出登录</a></li>
             </ul>
         </div>
     </div>

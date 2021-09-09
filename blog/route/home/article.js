@@ -7,8 +7,10 @@ module.exports = async (req, res) => {
     // 根据id查询文章详细信息-关联查询
     let article = await Article.findOne({ _id: id }).populate('author');
     article = JSON.parse(JSON.stringify(article));
+    // console.log("HOME NOW", req.app.locals.userInfo);
     // 渲染模板文件进行展示
     // res.send(article);
+    // console.log(req.app.locals.userInfo)
     res.render('home/article.art', { article: article });
     // res.render('home/article.art');
 }

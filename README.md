@@ -75,7 +75,7 @@ get请求会把表单内容放到地址栏。
 ## 重新定位并启动数据库
 
 ```bash
-mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file --logpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file/log/mongodb.log
+mongod --dbpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file --logpath /Users/lianda_duan/Desktop/Blog_management/Mongo_Database_file/log/mongodb.log --auth
 ```
 
 原始conf文件备份：
@@ -103,7 +103,7 @@ security:
 
 ```bash
 git add .
-git commit -m "判断当前用户登录的角色-跳转到不同页面 普通用户无法访问后台管理"
+git commit -m "用户评论功能 home和admin都应该使用express.Router()进行初始化"
 git push origin master
 ```
 

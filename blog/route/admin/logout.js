@@ -5,5 +5,7 @@ module.exports = (req, res) => {
         res.clearCookie('connect.sid');
         // redirect to login page
         res.redirect('/admin/login');
+        //清除模板中的用户登录信息
+        req.app.locals.userInfo = null;
     });
 }

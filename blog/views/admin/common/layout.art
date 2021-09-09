@@ -10,7 +10,6 @@
 </head>
 
 <body>
-// fix
     {{include './header.art'}}
     <!-- 主体内容 -->
     {{block 'main_content'}}{{/block}}
