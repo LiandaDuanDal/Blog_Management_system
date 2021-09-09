@@ -103,7 +103,7 @@ security:
 
 ```bash
 git add .
-git commit -m "添加链接-点击链接实现分页-页码高亮"
+git commit -m "点击文章进入详情页面"
 git push origin master
 ```
 
