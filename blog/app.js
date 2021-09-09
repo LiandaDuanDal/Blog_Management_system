@@ -8,6 +8,14 @@ const path = require('path');
 const bodyParser = require('body-parser');
 // 导入session模块 
 const session = require('express-session');
+// 
+app.use(session({
+    secret: 'secret key',
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 24 * 60 * 60 * 1000
+    }
+}));
 // 导入dateFormat第三方模块
 const dateFormat = require('dateformat');
 // art-template第三方模块
@@ -20,8 +28,11 @@ require('./database/connect.js');
 // process post paramneter
 // 推荐使用false 如果为true会使用系统内置模块处理
 app.use(bodyParser.urlencoded({ extended: false }));
-// 
-app.use(session({ secret: 'my-own-secretkey' }));
+// // 
+// app.use(session({
+//     secret: 'secret key',
+//     saveUninitialized: false
+// }));
 // import and setup user
 require('./model/user.js');
 
@@ -74,7 +85,7 @@ app.use('/admin', require('./middleware/loginGuard.js'));
 // configure use midlleware
 app.use('/home', require('./route/home.js'));
 app.use('/admin', require('./route/admin.js'));
-
+// app.use(session({secret: ''}))
 
 // 错误处理中间件    
 app.use((err, req, res, next) => {

@@ -103,7 +103,7 @@ security:
 
 ```bash
 git add .
-git commit -m "渲染评论内容"
+git commit -m "logout删除session 删除cookie 设置cookie过期时间"
 git push origin master
 ```
 
