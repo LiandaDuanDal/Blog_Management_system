@@ -103,7 +103,7 @@ security:
 
 ```bash
 git add .
-git commit -m "评论添加功能-设置表单-路由-将评论储存到数据库"
+git commit -m "渲染评论内容"
 git push origin master
 ```
 

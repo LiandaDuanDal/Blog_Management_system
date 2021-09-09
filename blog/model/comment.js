@@ -21,7 +21,6 @@ const commentSchema = new mongoose.Schema({
         type: String
     }
 });
-
 // create comment set
 const Comment = mongoose.model('Comment', commentSchema);
 // export
