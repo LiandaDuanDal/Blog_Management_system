@@ -103,7 +103,7 @@ security:
 
 ```bash
 git add .
-git commit -m "点击文章进入详情页面"
+git commit -m "判断当前用户登录的角色-跳转到不同页面 普通用户无法访问后台管理"
 git push origin master
 ```
 

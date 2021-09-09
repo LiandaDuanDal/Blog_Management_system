@@ -28,11 +28,21 @@ module.exports = async (req, res) => {
             // req.username = user.username;
             req.session.username = user.username;
             console.log("session====>", req.session);
+            //存储角色
+            req.session.role = user.role;
+
             // 回传登录成功信息
             // res.send('登录成功');
             // 在req中可以拿到app    
             req.app.locals.userInfo = user;
-            res.redirect('/admin/user');
+            // 对用户的角色进行判断
+            if (user.role == 'admin') {
+                // is admin---redirect to the user list
+                res.redirect('/admin/user');
+            } else {
+                res.redirect('/home');
+            }
+
         } else {
             console.log("密码验证未通过");
             res.status(400).render('admin/error', { msg: '邮箱地址或者密码错误' });
